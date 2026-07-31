@@ -1,4 +1,4 @@
-# pingi: an easily highly configurable data science plotter
+# pingi: an easily and highly configurable data science plotter
 
 Pingi is python wrapper around [Matplotlib](https://matplotlib.org/),
 [Seaborn](https://seaborn.pydata.org/) and [IPython](https://ipython.org/) for creating
@@ -44,7 +44,7 @@ the additional required dependencies using the command:
 
 ## Documentation
 
-* [Examples Gallery](https://eliocp.github.io/pingi/examples)
+To be built.
 
 ## Development
 
@@ -54,12 +54,6 @@ the additional required dependencies using the command:
 
     ```bash
     uv sync --all-groups
-    ```
-
-* Build the package:
-
-    ```bash
-    uv build
     ```
 
 ### Linting
@@ -94,4 +88,12 @@ the additional required dependencies using the command:
 
     ```bash
     uv run ruff format
+    ```
+
+### Build the package
+
+* Build the package:
+
+    ```bash
+    uv build
     ```
