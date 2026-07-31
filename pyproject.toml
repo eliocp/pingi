@@ -1,0 +1,107 @@
+# Configuration file for the pingi project
+# NOTE: to know more about the fields of the present file, check
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/.
+
+# ---> Main project metadata
+[project]
+name = "pingi"
+version = "0.0.1"
+description = "Wrapper around matplotlib, seaborn and ipython for creating highly configurable data science visualizations with minimal code."
+authors = [
+    { name = "Élio Pereira", email = "eliocp@tuta.io" }
+]
+
+# Keywords (to improve discoverability and the dependencies that are required to install
+# the package)
+keywords = ["data science", "matplotlib", "seaborn", "markdown", "html", "display"]
+
+readme = "README.md"
+# Licenses' identifiers
+# NOTE: Check
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license to know
+# more about the license field.
+# NOTE: Check https://spdx.org/licenses/ for a list of valid identifiers.
+# NOTE: MIT license: https://spdx.org/licenses/MIT.html
+license = "MIT"
+# Glob paths to the license files
+# NOTE: Check
+# https://packaging.python.org/en/latest/tutorials/packaging-projects/#creating-a-license
+# to how to create a license file.
+# NOTE: MIT license file: https://choosealicense.com/licenses/mit/
+license-files = ["LICEN[CS]E*"]
+
+# PyPI classifiers
+# NOTE: Check https://pypi.org/classifiers/ for a list of valid classifiers.
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: Unix",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "License :: OSI Approved :: MIT License",
+]
+
+# Minimum version of Python that is supported
+requires-python = ">=3.13"
+
+# Runtime dependencies (the main dependencies that are required to run the package)
+dependencies = [
+    "ipython>=9.15.0",
+    "seaborn>=0.13.2",
+]
+
+# ---> Additional dependency groups for development
+# NOTE: Command `uv sync --group GROUP` will install the dependencies in the group
+# `GROUP` besides the runtime ones.
+[dependency-groups]
+dev = [
+    "ruff>=0.16.1",
+]
+docs = [
+    "ipykernel>=7.3.0",
+    # WARNING: VS Code restart may be required after installing ipywidgets so that the
+    # widgets are properly displayed in the notebook.
+    "ipywidgets>=8.1.8",
+]
+
+
+# ---> Scripts that can be run from the command line after installing the package
+[project.scripts]
+# Command for (re)installing latex
+# NOTE: After installation, command `pingi-install-latex` may be run in the terminal to
+# install LaTeX dependencies. The command uses function `install_latex` from the module
+# `pingi.cli` which in turn run the script `scripts/install/install_latex.sh`.
+pingi-install-latex = "pingi.cli:install_latex"
+# Command for uninstalling latex
+pingi-uninstall-latex = "pingi.cli:uninstall_latex"
+
+# ---> URLs associated with the project
+# NOTE: Check https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#urls
+# to know more about the URLs field.
+[project.urls]
+Homepage = "https://github.com/eliocp/pingi"
+Repository = "https://github.com/eliocp/pingi"
+Issues = "https://github.com/eliocp/pingi/issues"
+
+# ---> Build backend tool
+# NOTE: The build backend tool is responsible for creating the distribution package
+# (check
+# https://packaging.python.org/en/latest/tutorials/packaging-projects/#choosing-a-build-backend
+# for more details).
+# NOTE: Hatchling tool has many benefits compared to the ubiquitous setuptools (check
+# https://hatch.pypa.io/1.8/why/)
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.build.targets.wheel]
+# Location of the source code of the package to be used by the Hatchling build backend
+packages = ["src/pingi"]
+
+[tool.hatch.build.targets.wheel.force-include]
+# Force inclusion of type hinting recognition in the Hatchling build backend
+# NOTE: https://peps.python.org/pep-0561/#packaging-type-information
+"src/pingi/py.typed" = "pingi/py.typed"
