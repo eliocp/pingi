@@ -9,7 +9,8 @@ highly configurable data science visualizations with minimal code.
 ### Using [`pip`](https://pypi.org/project/pip/)
 
 * Install the latest stable release (and required dependencies) from
-[PyPI](https://pypi.org/) using [`pip`](https://pypi.org/project/pip/) command:
+[PyPI](https://pypi.org/project/pingi/) using [`pip`](https://pypi.org/project/pip/)
+command:
 
     ```bash
     pip install pingi
@@ -34,7 +35,7 @@ the additional required dependencies using the command:
     pingi-install-latex
     ```
     and enabling the rendering in the Python code, using parameter `usetex=True` in
-    function [`configure_rc()`](src/pingi/configure.py#L8):
+    function [`configure_rc()`](https://github.com/eliocp/pingi/tree/main/src/pingi/configure.py#L8):
 
     ```python
     from pingi.configure import configure_rc
@@ -88,12 +89,4 @@ To be built.
 
     ```bash
     uv run ruff format
-    ```
-
-### Build the package
-
-* Build the package:
-
-    ```bash
-    uv build
     ```
