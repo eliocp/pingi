@@ -7,13 +7,18 @@
 name = "pingi"
 version = "0.1.1"
 description = "Wrapper around matplotlib, seaborn and ipython for creating highly configurable data science visualizations with minimal code."
-authors = [
-    { name = "Élio Pereira", email = "eliocp@tuta.io" }
-]
+authors = [{ name = "Élio Pereira", email = "eliocp@tuta.io" }]
 
 # Keywords (to improve discoverability and the dependencies that are required to install
 # the package)
-keywords = ["data science", "matplotlib", "seaborn", "markdown", "html", "display"]
+keywords = [
+    "data science",
+    "matplotlib",
+    "seaborn",
+    "markdown",
+    "html",
+    "display",
+]
 
 readme = "README.md"
 # Licenses' identifiers
@@ -47,18 +52,13 @@ classifiers = [
 requires-python = ">=3.13"
 
 # Runtime dependencies (the main dependencies that are required to run the package)
-dependencies = [
-    "ipython>=9.15.0",
-    "seaborn>=0.13.2",
-]
+dependencies = ["ipython>=9.15.0", "seaborn>=0.13.2"]
 
 # ---> Additional dependency groups for development
 # NOTE: Command `uv sync --group GROUP` will install the dependencies in the group
 # `GROUP` besides the runtime ones.
 [dependency-groups]
-dev = [
-    "ruff>=0.16.1",
-]
+dev = ["ruff>=0.16.1"]
 docs = [
     "ipykernel>=7.3.0",
     # WARNING: VS Code restart may be required after installing ipywidgets so that the
@@ -99,9 +99,5 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 # Location of the source code of the package to be used by the Hatchling build backend
+# NOTE: https://github.com/pypa/hatch/blob/master/docs/config/build.md#packages
 packages = ["src/pingi"]
-
-[tool.hatch.build.targets.wheel.force-include]
-# Force inclusion of type hinting recognition in the Hatchling build backend
-# NOTE: https://peps.python.org/pep-0561/#packaging-type-information
-"src/pingi/py.typed" = "pingi/py.typed"
