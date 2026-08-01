@@ -64,10 +64,10 @@ command:
 #### Use LaTeX text rendering
 
 * Integrate [LaTeX](https://www.latex-project.org/) in the plots by firstly installing
-the additional required dependencies using the command:
+the additional required dependencies using [`uv`](https://docs.astral.sh/uv/):
 
     ```bash
-    pingi-install-latex
+    uv run pingi-install-latex
     ```
     and enabling the rendering in the Python code, using parameter `usetex=True` in
     function [`configure_rc()`](https://github.com/eliocp/pingi/tree/main/src/pingi/configure.py#L8):

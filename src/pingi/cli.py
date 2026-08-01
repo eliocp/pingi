@@ -1,5 +1,5 @@
 import subprocess
-from pathlib import Path
+from importlib.resources import files
 
 
 def install_latex() -> None:
@@ -8,9 +8,7 @@ def install_latex() -> None:
     `scripts/install/install_latex.sh`.
     """
     # Path to latex installation script
-    script = (
-        Path(__file__).resolve().parents[2] / "scripts" / "install" / "install_latex.sh"
-    )
+    script = files("pingi").joinpath("scripts/install/install_latex.sh")
     # Run script
     subprocess.run(
         # Command arguments
@@ -26,12 +24,7 @@ def uninstall_latex() -> None:
     `scripts/install/uninstall_latex.sh`.
     """
     # Path to latex installation script
-    script = (
-        Path(__file__).resolve().parents[2]
-        / "scripts"
-        / "install"
-        / "uninstall_latex.sh"
-    )
+    script = files("pingi").joinpath("scripts/install/uninstall_latex.sh")
     # Run script
     subprocess.run(
         # Command arguments
