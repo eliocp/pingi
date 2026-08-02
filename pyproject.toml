@@ -5,7 +5,7 @@
 # ---> Main project metadata
 [project]
 name = "pingi"
-version = "0.1.3"
+version = "0.1.4"
 description = "Wrapper around matplotlib, seaborn and ipython for creating highly configurable data science visualizations with minimal code."
 authors = [{ name = "Élio Pereira", email = "eliocp@tuta.io" }]
 
@@ -71,9 +71,10 @@ docs = [
 # ---> Scripts that can be run from the command line after installing the package
 [project.scripts]
 # Command for (re)installing latex
-# NOTE: After installation, command `pingi-install-latex` may be run in the terminal to
-# install LaTeX dependencies. The command uses function `install_latex` from the module
-# `pingi.cli` which in turn run the script `scripts/install/install_latex.sh`.
+# NOTE: After installation, command `uv run pingi-install-latex` may be run in the
+# terminal to install LaTeX dependencies. The command uses function `install_latex` from
+# the module `pingi.cli` which in turn runs the script
+# `scripts/install/install_latex.sh`.
 pingi-install-latex = "pingi.cli:install_latex"
 # Command for uninstalling latex
 pingi-uninstall-latex = "pingi.cli:uninstall_latex"

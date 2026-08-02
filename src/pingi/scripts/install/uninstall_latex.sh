@@ -20,17 +20,26 @@ source "$SCRIPTS_DIR/utils/print.sh"
 
 # ---> Uninstall latex
 info "Removing LaTeX packages..."
-sudo apt remove --purge -y \
+if sudo apt remove --purge -y \
     dvipng \
     texlive-latex-extra \
     texlive-fonts-recommended \
-    cm-super
-info "Done."
+    cm-super; then
+    info "Done."
+else
+    error "Failed."
+fi
 
 info "Removing unused dependencies..."
-sudo apt autoremove -y
-info "Done."
+if sudo apt autoremove -y; then
+    info "Done."
+else
+    error "Failed."
+fi
 
 info "Cleaning package cache..."
-sudo apt clean
-info "Done."
+if sudo apt clean; then
+    info "Done."
+else
+    error "Failed."
+fi

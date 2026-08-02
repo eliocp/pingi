@@ -20,14 +20,20 @@ source "$SCRIPTS_DIR/utils/print.sh"
 
 # ----> Install latex
 info "Updating package metadata from source..."
-sudo apt update
-info "Done."
+if sudo apt update; then
+    info "Done."
+else
+    error "Failed."
+fi
 
 info "Installing LaTeX packages..."
 # NOTE: sudo apt install does nothing if packages are already installed and up-to-date.
-sudo apt install -y \
+if sudo apt install -y \
     dvipng \
     texlive-latex-extra \
     texlive-fonts-recommended \
-    cm-super
-info "Done."
+    cm-super; then
+    info "Done."
+else
+    error "Failed."
+fi
