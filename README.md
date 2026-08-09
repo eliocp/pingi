@@ -103,14 +103,14 @@ To be built.
 ## Contributing
 
 If you are a project developer, please read
-[CONTRIBUTING.md](https://github.com/eliocp/eliocp/blob/main/CONTRIBUTING.md) to
+[CONTRIBUTING.md](https://github.com/eliocp/pingi/blob/main/CONTRIBUTING.md) to
 assimilate the development workflow, build Docker images from the project source code
 and locally run them.
 
 ## Releasing
 
 If you are a project maintainer, please read
-[RELEASING.md](https://github.com/eliocp/eliocp/blob/main/RELEASING.md) to know how to
+[RELEASING.md](https://github.com/eliocp/pingi/blob/main/RELEASING.md) to know how to
 build and publish the package to [PyPI](https://pypi.org/) and to create [GitHub
 releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 after successful merge pull requests.
