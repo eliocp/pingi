@@ -26,14 +26,20 @@ readme = "README.md"
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license to know
 # more about the license field.
 # NOTE: Check https://spdx.org/licenses/ for a list of valid identifiers.
+# NOTE: For the case of proprietary licenses `"LicenseRef-Proprietary"` should be used
+# (https://packaging.python.org/en/latest/guides/licensing-examples-and-user-scenarios/#i-have-a-private-package-that-won-t-be-distributed).
 # NOTE: MIT license: https://spdx.org/licenses/MIT.html
 license = "MIT"
 # Glob paths to the license files
 # NOTE: Check
 # https://packaging.python.org/en/latest/tutorials/packaging-projects/#creating-a-license
 # to how to create a license file.
+# NOTE: For the case of proprietary licenses `"LicenseRef-Proprietary"` should be used
+# (https://packaging.python.org/en/latest/guides/licensing-examples-and-user-scenarios/#i-have-a-private-package-that-won-t-be-distributed).
 # NOTE: MIT license file: https://choosealicense.com/licenses/mit/
-# WARNING: [year] and [fullname] entries in the file  must be replaced.
+# WARNING: [year] and [fullname] entries in the file must be replaced.
+# NOTE: "LICEN[CS]E*" is a glob pattern that matches both "LICENSE" (american english)
+# and "LICENCE" (british and commonwealth english) files with additional suffixes.
 license-files = ["LICEN[CS]E*"]
 
 # PyPI classifiers
@@ -59,7 +65,10 @@ dependencies = ["ipython>=9.15.0", "seaborn>=0.13.2"]
 # NOTE: Command `uv sync --group GROUP` will install the dependencies in the group
 # `GROUP` besides the runtime ones.
 [dependency-groups]
-dev = ["ruff>=0.16.1"]
+dev = [
+    "pre-commit>=4.6.1",
+    "ruff>=0.16.1",
+]
 docs = [
     "ipykernel>=7.3.0",
     # WARNING: VS Code restart may be required after installing ipywidgets so that the
@@ -69,14 +78,13 @@ docs = [
 
 
 # ---> Scripts that can be run from the command line after installing the package
+# NOTE: After installation, command `uv run COMMAND` where COMMAND is the key herein
+# given to the respective module path and function (COMMAND = "MODULE_PATH:FUNCTION")
+# will be available to run the function.
 [project.scripts]
-# Command for (re)installing latex
-# NOTE: After installation, command `uv run pingi-install-latex` may be run in the
-# terminal to install LaTeX dependencies. The command uses function `install_latex` from
-# the module `pingi.cli` which in turn runs the script
-# `scripts/install/install_latex.sh`.
+# Install latex.
 pingi-install-latex = "pingi.cli:install_latex"
-# Command for uninstalling latex
+# Uninstall latex
 pingi-uninstall-latex = "pingi.cli:uninstall_latex"
 
 # ---> URLs associated with the project
@@ -103,3 +111,15 @@ build-backend = "hatchling.build"
 # Location of the source code of the package to be used by the Hatchling build backend
 # NOTE: https://github.com/pypa/hatch/blob/master/docs/config/build.md#packages
 packages = ["src/pingi"]
+
+
+# ---> Development tools' configurations
+# ruff configuration
+# NOTE: https://github.com/astral-sh/ruff#configuration
+[tool.ruff]
+# Assume a python version
+target-version = "py313"
+# Line maximum length
+line-length = 88
+# Indentation width
+indent-width = 4
