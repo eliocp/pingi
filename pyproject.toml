@@ -5,7 +5,7 @@
 # ---> Main project metadata
 [project]
 name = "pingi"
-version = "0.1.5"
+version = "0.1.6"
 description = "Wrapper around matplotlib, seaborn and ipython for creating highly configurable data science visualizations with minimal code."
 authors = [{ name = "Élio Pereira", email = "eliocp@tuta.io" }]
 
