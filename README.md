@@ -1,4 +1,4 @@
-# pingi: an easily and highly configurable data science plotter
+# **pingi**: an easily and highly configurable data science plotter
 
 <!-- Badges from [Shields.io](https://shields.io/badges) -->
 
@@ -21,6 +21,7 @@ project. All GitHub-related badges may be found
 <!-- GitHub time of last commit: https://shields.io/badges/git-hub-last-commit -->
 
 <!-- ---------------------------- Other badges ----------------------------- -->
+<!-- pre-commit usag: https://pre-commit.com/#badging-your-repository -->
 <!-- uv package and project manager usage: https://github.com/astral-sh/uv/pull/15075#issue-3291641128 -->
 <!-- Ruff linter and formatter usage: https://github.com/astral-sh/ruff/blob/main/README.md?plain=1 -->
 <!-- Hatch build backend usage: https://hatch.pypa.io/dev/next-steps/#community -->
@@ -31,46 +32,50 @@ project. All GitHub-related badges may be found
 ![PyPI Wheel](https://img.shields.io/pypi/wheel/pingi)
 ![PyPI Status](https://img.shields.io/pypi/status/pingi)
 ![GitHub last commit](https://img.shields.io/github/last-commit/eliocp/pingi)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![uv](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FOnyx-Nostalgia%2Fuv%2Frefs%2Fheads%2Ffix%2Flogo-badge%2Fassets%2Fbadge%2Fv0.json)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Hatch project](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pypa/hatch/master/docs/assets/badge/v0.json)](https://github.com/pypa/hatch)
 
-Pingi is a python wrapper around [Matplotlib](https://matplotlib.org/),
-[Seaborn](https://seaborn.pydata.org/) and [IPython](https://ipython.org/) for creating
-highly configurable data science visualizations with minimal code.
+[`pingi`](https://github.com/eliocp/pingi) is a python wrapper around
+[`matplotlib`](https://matplotlib.org/), [`seaborn`](https://seaborn.pydata.org/) and
+[`ipython`](https://ipython.org/) for creating highly configurable data science
+visualizations with minimal code.
+
+## Requirements
+
+To be able to install and use the [pingi](https://github.com/eliocp/pingi)
+package in your project, you would need:
+
+* An [Unix](https://en.wikipedia.org/wiki/Unix)-like environment.
+* [`uv`](https://docs.astral.sh/uv/) project manager.
 
 ## Installation
 
-### Using [`pip`](https://pypi.org/project/pip/)
+### 1. Install package from PyPI
 
-* Install the latest stable release (and required dependencies) from
-[PyPI](https://pypi.org/project/pingi/) using [`pip`](https://pypi.org/project/pip/)
-command:
-
-    ```bash
-    pip install pingi
-    ```
-
-### Using [`uv`](https://docs.astral.sh/uv/)
-
-* Or, using [`uv`](https://docs.astral.sh/uv/) command:
+* Install the latest stable release from [PyPI](https://pypi.org/project/pingi/) in the
+activated virtual environment using [`uv`](https://docs.astral.sh/uv/):
 
     ```bash
     uv add pingi
     ```
 
-## Getting started
+### 2. Install LaTeX (optional)
 
-#### Use LaTeX text rendering
-
-* Integrate [LaTeX](https://www.latex-project.org/) in the plots by firstly installing
-the additional required dependencies using [`uv`](https://docs.astral.sh/uv/):
+* To further use [LaTeX](https://www.latex-project.org/) in the plots, install its dependencies:
 
     ```bash
     uv run pingi-install-latex
     ```
-    and enabling the rendering in the Python code, using parameter `usetex=True` in
-    function [`configure_rc()`](https://github.com/eliocp/pingi/tree/main/src/pingi/configure.py#L8):
+
+
+## Getting started
+
+#### Use LaTeX text rendering
+
+* Enabling LaTeX rendering in the plots by setting parameter `usetex=True` in function
+[`configure_rc()`](https://github.com/eliocp/pingi/tree/main/src/pingi/configure.py#L8):
 
     ```python
     from pingi.configure import configure_rc
@@ -91,42 +96,26 @@ To be built.
     ```bash
     uv sync --all-groups
     ```
+## Documentation
 
-### Linting
+To be built.
 
-* Use [`ruff`](https://docs.astral.sh/ruff/linter/) for Python linting:
+## Contributing
 
-    ```bash
-    uv run ruff check --fix --diff
-    ```
-    The command above will check for bugs, suspicious code, style violations, dead code,
-    complexity issues and import problems. It will further proposed fixes.
+If you are a project developer, please read
+[CONTRIBUTING.md](https://github.com/eliocp/eliocp/blob/main/CONTRIBUTING.md) to
+assimilate the development workflow, build Docker images from the project source code
+and locally run them.
 
-* Apply the fixes:
+## Releasing
 
-    ```bash
-    uv run ruff check --fix
-    ```
-
-### Formatting
-
-* Use [`ruff`](https://docs.astral.sh/ruff/formatter/) for Python formatting:
-
-    ```bash
-    uv run ruff format --diff
-    ```
-
-    The command above will check the code structure, namely, the indentation, spaces,
-    line breaks, quote style and long line wrapping. It will further show the proposed
-    changes.
-
-* Apply the changes:
-
-    ```bash
-    uv run ruff format
-    ```
+If you are a project maintainer, please read
+[RELEASING.md](https://github.com/eliocp/eliocp/blob/main/RELEASING.md) to know how to
+build and publish the package to [PyPI](https://pypi.org/) and to create [GitHub
+releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+after successful merge pull requests.
 
 ## License
 
-Pingi is licensed under the terms of the [MIT
+`pingi` is licensed under the terms of the [MIT
 license](https://github.com/eliocp/pingi/blob/main/LICENSE). 

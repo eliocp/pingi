@@ -1,22 +1,10 @@
 #!/usr/bin/env bash
 
-# Exit on error (-e), on use of undefined variables (-u), and if any command in a
-# pipeline fails (-o pipefail).
-# For details, see: https://linuxcommand.org/lc3_man_pages/seth.html
-set -euo pipefail
+# ---> Get absolute path to scripts directory
+SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-
-# ---> Get helpful paths
-WORKING_DIR="$PWD"
-# Get absolute path to this very script
-SCRIPT_FILE="$(realpath "${BASH_SOURCE[0]}")"
-# Get absolute path to parent directory of this very script (install)
-INSTALL_DIR="$(dirname "$SCRIPT_FILE")"
-# Get absolute path to parent directory of the install directory (scripts)
-SCRIPTS_DIR="$(dirname "$INSTALL_DIR")"
-
-# ---> Get functions for printing info, warning and error messages
-source "$SCRIPTS_DIR/utils/print.sh"
+# ---> Get utility functions
+source "$SCRIPTS_DIR/utils.sh"
 
 # ----> Install latex
 info "Updating package metadata from source..."
