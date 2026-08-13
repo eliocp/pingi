@@ -12,7 +12,11 @@ def install_latex() -> None:
     # Run script
     subprocess.run(
         # Command arguments
-        ["bash", str(script)],
+        [
+            "bash",
+            "-c",
+            f'source "{script}"',
+        ],
         # Raise error if the command fails
         check=True,
     )
@@ -28,7 +32,11 @@ def uninstall_latex() -> None:
     # Run script
     subprocess.run(
         # Command arguments
-        ["bash", str(script)],
+        [
+            "bash",
+            "-c",
+            f'source "{script}"',
+        ],
         # Raise error if the command fails
         check=True,
     )
