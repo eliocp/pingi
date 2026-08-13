@@ -4,7 +4,7 @@
 SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # ---> Get utility functions
-source "$SCRIPTS_DIR/utils.sh"
+source "$SCRIPTS_DIR/utils.sh" || return 1
 
 # ---> Uninstall latex
 info "Removing LaTeX packages..."
